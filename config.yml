@@ -1,0 +1,56 @@
+---
+cache_dir: ~/Library/Caches/battleschool
+
+sources:
+#  local:
+#    - playbook.yml
+
+#  url:
+#    - name: playbook.yml
+#      url: https://db.tt/VcyI9dvr
+
+  git:
+    - name: 'osx'
+      repo: 'https://github.com/obja/ansible-osx'
+      playbooks:
+         - homebrew.yml                 #must come before any use of homebrew module
+#         - macports.yml                #must come before any use of macports module
+#         - alfred.yml
+#         - chrome-beta.yml
+#         - chrome-canary.yml
+         - chrome-stable.yml
+         - dropbox.yml
+         - firefox.yml
+#         - karabiner.yml
+#         - intellij-idea-ultimate15.yml
+#         - java7.yml
+#         - java6.yml
+         - iterm2.yml
+#         - macvim.yml
+#         - phpbrew.yml
+         - phpstorm10.yml
+         - platform-sh.yml
+#         - better-touch-tool.yml
+#         - adium.yml
+#         - github.yml
+#         - gitx.yml
+#         - libreoffice.yml
+#         - seil.yml
+#         - spectacle.yml
+         - sequel-pro.yml
+         - skype.yml
+         - transmit.yml
+#         - truecrypt.yml
+#         - usb-overdrive.yml
+         - vagrant.yml
+#         - virtualbox.yml
+#         - vmware.yml
+         - vlc.yml
+#         - xtra-finder.yml
+
+  tasks:
+    - name: install homebrew_taps
+      homebrew_tap: tap={{item}} state=present
+      with_items:
+          - gapple/services
+          - caskroom/cask
