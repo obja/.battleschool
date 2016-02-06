@@ -41,6 +41,7 @@ sources:
          - skype.yml
          - transmit.yml
 #         - truecrypt.yml
+         - unrarx.yml
 #         - usb-overdrive.yml
          - vagrant.yml
 #         - virtualbox.yml
